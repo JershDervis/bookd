@@ -1,0 +1,29 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"type": "node-terminal",
+			"name": "Run Script: dev",
+			"request": "launch",
+			"command": "npm run dev",
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"name": "Launch Chrome",
+			"request": "launch",
+			"type": "chrome",
+			"url": "http://localhost:5173",
+			"port": 5173,
+			"smartStep": true,
+			"skipFiles": ["<node_internals>/**", "node_modules/**", "/**/*.js", "/**/*.css", "/*\\.js"],
+			"userDataDir": "${workspaceFolder}/.vscode/chrome"
+		}
+		// {
+		// 	"type": "chrome",
+		// 	"request": "launch",
+		// 	"name": "Launch Chrome against localhost",
+		// 	"url": "http://localhost:5173",
+		// 	"webRoot": "${workspaceFolder}/routes"
+		// }
+	]
+}

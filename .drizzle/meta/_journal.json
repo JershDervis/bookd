@@ -1,0 +1,41 @@
+{
+  "version": "5",
+  "dialect": "pg",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1688730673672,
+      "tag": "0000_bored_sunspot",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1688737187206,
+      "tag": "0001_wandering_whizzer",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1688774568768,
+      "tag": "0002_dapper_lenny_balinger",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1688782960011,
+      "tag": "0003_rainy_toxin",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1688783036289,
+      "tag": "0004_icy_killer_shrike",
+      "breakpoints": true
+    }
+  ]
+}
