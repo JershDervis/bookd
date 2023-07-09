@@ -28,8 +28,6 @@ export const db = drizzle(rdsClient, {
 });
 
 //  Migrate db to the latest if possible.
-if (import.meta.env.DEV) {
-	await migrate(db, {
-		migrationsFolder: '.drizzle'
-	});
-}
+await migrate(db, {
+	migrationsFolder: '.drizzle'
+});
