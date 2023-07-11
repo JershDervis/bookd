@@ -38,11 +38,6 @@ const authHandler = SvelteKitAuth(async () => {
 }) satisfies Handle;
 
 const migrationHandler = (async ({ event, resolve }) => {
-	//  Migrate db to the latest if possible.
-	await migrate(db, {
-		migrationsFolder: './src/drizzle'
-	});
-
 	const response = await resolve(event);
 	return response;
 }) satisfies Handle;

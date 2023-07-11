@@ -1,6 +1,7 @@
 import { drizzle } from 'drizzle-orm/aws-data-api/pg';
 import { RDSDataClient } from '@aws-sdk/client-rds-data';
 import { fromEnv, fromIni } from '@aws-sdk/credential-providers';
+import { migrate } from 'drizzle-orm/aws-data-api/pg/migrator';
 import { DB_NAME, AWS_PROFILE_NAME, AWS_ARN_SECRET, AWS_ARN } from '$env/static/private';
 
 let rdsClient = undefined;
@@ -25,3 +26,11 @@ export const db = drizzle(rdsClient, {
 	resourceArn: AWS_ARN,
 	secretArn: AWS_ARN_SECRET
 });
+
+//  Migrate db to the latest if possible.
+//  TODO: For prod, need to only call this once on build
+// if (import.meta.env.DEV) {
+await migrate(db, {
+	migrationsFolder: './src/drizzle'
+});
+// }
