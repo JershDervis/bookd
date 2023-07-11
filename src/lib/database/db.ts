@@ -31,6 +31,6 @@ export const db = drizzle(rdsClient, {
 //  TODO: For prod, need to only call this once on build
 // if (import.meta.env.DEV) {
 await migrate(db, {
-	migrationsFolder: './src/drizzle'
+	migrationsFolder: '.drizzle'
 });
 // }
