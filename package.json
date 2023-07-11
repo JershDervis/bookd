@@ -11,7 +11,7 @@
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
 		"format": "prettier --plugin-search-dir . --write .",
 		"migrate": "npx drizzle-kit generate:pg",
-		"migrate:push": "node -r esbuild-register --loader ts-node/esm ./src/lib/database/migrate.ts",
+		"migrate:push": "npx ts-node --esm ./src/lib/database/migrate.ts",
 		"vercel-build": "npm run migrate:push"
 	},
 	"devDependencies": {
