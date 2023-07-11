@@ -29,5 +29,5 @@ export const db = drizzle(rdsClient, {
 
 //  Migrate db to the latest if possible.
 await migrate(db, {
-	migrationsFolder: '.drizzle'
+	migrationsFolder: './src/drizzle'
 });

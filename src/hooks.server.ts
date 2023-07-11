@@ -32,14 +32,8 @@ const authOptions = {
 	providers: [GitHub({ clientId: GITHUB_ID, clientSecret: GITHUB_SECRET })]
 } as SvelteKitAuthConfig;
 
-const authHandler = SvelteKitAuth(async ({ locals }) => {
-	locals.db = db;
+const authHandler = SvelteKitAuth(async () => {
 	return authOptions;
 }) satisfies Handle;
-
-// const postAuthHandler = (async ({ event, resolve }) => {
-// 	const response = await resolve(event);
-// 	return response;
-// }) satisfies Handle;
 
 export const handle = sequence(authHandler);
