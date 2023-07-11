@@ -1,5 +1,5 @@
 {
-	"out": ".drizzle",
+	"out": "./src/lib/database/migrations",
 	"schema": "./src/lib/database/schema/*",
   "driver": "pg",
 	"breakpoints": true

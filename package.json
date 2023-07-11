@@ -11,7 +11,8 @@
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
 		"format": "prettier --plugin-search-dir . --write .",
 		"migrate": "npx drizzle-kit generate:pg",
-    "vercel-build": "npx ts-node ./src/lib/database/db.ts"
+		"migrate:push": "node -r esbuild-register ./src/lib/database/migrate.ts",
+		"vercel-build": "npm run migrate:push"
 	},
 	"devDependencies": {
 		"@floating-ui/dom": "^1.4.4",
@@ -23,6 +24,7 @@
 		"@vavite/node-loader": "^1.8.1",
 		"autoprefixer": "^10.4.14",
 		"drizzle-kit": "^0.19.3",
+		"esbuild-register": "^3.4.2",
 		"eslint": "^8.28.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-svelte": "^2.26.0",
@@ -44,6 +46,7 @@
 		"@aws-sdk/client-rds-data": "^3.363.0",
 		"@aws-sdk/credential-providers": "^3.363.0",
 		"@sveltejs/adapter-vercel": "^3.0.1",
+		"dotenv": "^16.3.1",
 		"drizzle-orm": "^0.27.0"
 	}
 }
