@@ -11,7 +11,7 @@
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
 		"format": "prettier --plugin-search-dir . --write .",
 		"migrate": "npx drizzle-kit generate:pg",
-    "vercel-build": "npx tsc ./src/lib/database/db.ts && node ./src/lib/database/db.js"
+    "vercel-build": "npx ts-node ./src/lib/database/db.ts"
 	},
 	"devDependencies": {
 		"@floating-ui/dom": "^1.4.4",
