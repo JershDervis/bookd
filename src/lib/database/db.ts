@@ -4,7 +4,10 @@ import { fromEnv, fromIni } from '@aws-sdk/credential-providers';
 import { migrate } from 'drizzle-orm/aws-data-api/pg/migrator';
 import { DB_NAME, AWS_PROFILE_NAME, AWS_ARN_SECRET, AWS_ARN } from '$env/static/private';
 
-let rdsClient = undefined;
+let rdsClient = new RDSDataClient({
+	credentials: fromEnv(),
+	region: 'ap-southeast-2'
+});
 
 if (import.meta.env.DEV) {
 	rdsClient = new RDSDataClient({
@@ -12,11 +15,6 @@ if (import.meta.env.DEV) {
 			profile: AWS_PROFILE_NAME,
 			filepath: '.aws/credentials'
 		}),
-		region: 'ap-southeast-2'
-	});
-} else {
-	rdsClient = new RDSDataClient({
-		credentials: fromEnv(),
 		region: 'ap-southeast-2'
 	});
 }
@@ -28,7 +26,7 @@ export const db = drizzle(rdsClient, {
 });
 
 //  Migrate db to the latest if possible.
-//  TODO: For prod, need to only call this once on build
+//  For prod, need to only call this once on build
 if (import.meta.env.DEV) {
 	await migrate(db, {
 		migrationsFolder: './src/lib/database/migrations'
