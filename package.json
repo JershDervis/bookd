@@ -4,14 +4,13 @@
 	"private": true,
 	"scripts": {
 		"dev": "vavite-loader vite dev",
-		"build": "vite build",
+		"build": "vite build && npx ts-node --esm ./build-time/migrate.ts",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
 		"format": "prettier --plugin-search-dir . --write .",
-		"migrate": "npx drizzle-kit generate:pg",
-    "vercel-build": "npx ts-node --esm ./build-time/migrate.ts"
+		"migrate": "npx drizzle-kit generate:pg"
 	},
 	"devDependencies": {
 		"@floating-ui/dom": "^1.4.4",
