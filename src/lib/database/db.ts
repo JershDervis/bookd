@@ -29,8 +29,8 @@ export const db = drizzle(rdsClient, {
 
 //  Migrate db to the latest if possible.
 //  TODO: For prod, need to only call this once on build
-if (import.meta.env.DEV) {
-	await migrate(db, {
-		migrationsFolder: './src/lib/database/migrations'
-	});
-}
+// if (import.meta.env.DEV) {
+await migrate(db, {
+	migrationsFolder: './src/lib/database/migrations'
+});
+// }

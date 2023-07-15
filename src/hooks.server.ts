@@ -6,7 +6,6 @@ import { NEXTAUTH_SECRET, GITHUB_ID, GITHUB_SECRET } from '$env/static/private';
 import { pgDrizzleAdapter } from '$lib/database/auth-adapter';
 import type { CallbacksOptions } from '@auth/core/types';
 import { sequence } from '@sveltejs/kit/hooks';
-import { migrate } from 'drizzle-orm/aws-data-api/pg/migrator';
 
 /**
  * Options for NextAuth.js used to configure adapters, providers, callbacks, etc.
@@ -37,9 +36,9 @@ const authHandler = SvelteKitAuth(async () => {
 	return authOptions;
 }) satisfies Handle;
 
-const migrationHandler = (async ({ event, resolve }) => {
-	const response = await resolve(event);
-	return response;
-}) satisfies Handle;
+// const migrationHandler = (async ({ event, resolve }) => {
+// 	const response = await resolve(event);
+// 	return response;
+// }) satisfies Handle;
 
-export const handle = sequence(migrationHandler, authHandler);
+export const handle = sequence(authHandler);
